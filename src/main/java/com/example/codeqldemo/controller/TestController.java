@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.*;
 import java.util.Scanner;
@@ -14,14 +15,11 @@ import java.util.Scanner;
 @RestController
 public class TestController {
 
+	@Autowired
+	private InsecureCryptoExample insecureCryptoExample;
 
     @GetMapping("/getCountry")
     public ResponseEntity<Countries> getCountryById(@RequestParam Integer id) throws SQLException {
-
-			Scanner sc=new Scanner(System.in);
-			sc.next();
-
-
 			Connection conn = DriverManager.getConnection("jdbc:h2:mem:testdb", "sa", "");
 			String sql = "SELECT * FROM countries WHERE id = '" + id + "'";
 			Statement stmt = conn.createStatement();
