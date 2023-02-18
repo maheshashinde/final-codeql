@@ -73,4 +73,7 @@ jobs:
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
       with:
-        category: "/language:${{matrix.language}}"
+        #category: "/language:${{matrix.language}}"
+        language: ${{ matrix.language }}
+        query: 'insecure-crypto.ql'
+        fail-on-errors: true
