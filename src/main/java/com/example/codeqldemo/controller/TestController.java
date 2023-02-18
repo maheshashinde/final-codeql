@@ -19,7 +19,7 @@ public class TestController {
 	private InsecureCryptoExample insecureCryptoExample;
 
     @GetMapping("/getCountry")
-    public ResponseEntity<Countries> getCountryById(@RequestParam Integer id) throws SQLException {
+    public ResponseEntity<Countries> getCountryById(@RequestParam String id) throws SQLException {
 			Connection conn = DriverManager.getConnection("jdbc:h2:mem:testdb", "sa", "");
 			String sql = "SELECT * FROM countries WHERE id = '" + id + "'";
 			Statement stmt = conn.createStatement();
