@@ -2,7 +2,9 @@ package com.example.codeqldemo.controller;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+import org.springframework.stereotype.Component;
 
+@Component
 public class InsecureCryptoExample {
 
     private static final String ALGORITHM = "AES";
